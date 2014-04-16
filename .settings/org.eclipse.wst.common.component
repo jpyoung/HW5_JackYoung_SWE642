@@ -3,6 +3,7 @@
     <wb-module deploy-name="HW5_JackYoung_SWE642">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent"/>
         <property name="context-root" value="HW5_JackYoung_SWE642"/>
         <property name="java-output-path" value="/HW5_JackYoung_SWE642/build/classes"/>
     </wb-module>
