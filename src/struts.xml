@@ -5,7 +5,6 @@
 <struts>
 	<package name="default" extends="struts-default">
 		
-
 	<action name="Drivers" class="actions.Driver" method="submit">
 		<result name="success">SimpleAcknowledgement.jsp</result>
 		<result name="winner">WinnerAcknowledgement.jsp</result>
