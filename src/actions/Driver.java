@@ -18,7 +18,9 @@ import model.StudentBeans;
  * @date April 16, 2014
  * SWE 642
  * 
- * Servlet implementation class Driver
+ * The Driver class is used as the main action class in this struts application.  It is
+ * responsible for handling the user interactions; which are simply survey form submission
+ * and detailed user view selection. 
  */
 @SuppressWarnings("rawtypes")
 public class Driver extends ActionSupport implements ModelDriven, ServletContextAware {
@@ -36,6 +38,13 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
         // TODO Auto-generated constructor stub
     }
 
+    
+	/**
+	 * This method is called when a user select a studentID from the list of
+	 * ID's in the left column of the page.
+	 * 
+	 * @return String
+	 */
 	public String gotoDetailedStudentView() {
 		System.out.println("[INFO] :=:  gotoDetailedStudentView() method called in the Driver Action Class");
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
@@ -58,6 +67,14 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	}
 	
 	
+	/**
+	 * This method is called when a user submits the survey form.
+	 * Once the form is submitted, the data is persisted and the user
+	 * is then redirected to a acknowledgment page depending on their
+	 * raffle average.  
+	 * 
+	 * @return String
+	 */
 	public String submit() {
 		System.out.println("[INFO] :=:  doGet() method called in the Driver Action Class");
 		StudentDAO.FILENAME = servletContext.getRealPath("SurveyData_JackYoung.txt");

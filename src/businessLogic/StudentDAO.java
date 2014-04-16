@@ -18,7 +18,7 @@ import javax.persistence.Query;
 
 /**
  * @author Jack Young
- * @date April 01, 2014
+ * @date April 14, 2014
  * SWE 642
  * 
  * Class Purpose:  The purpose of this class is to encapsulate the business logic for storing
