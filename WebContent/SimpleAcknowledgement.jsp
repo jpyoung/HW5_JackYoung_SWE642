@@ -21,10 +21,8 @@
 		<div id="leftPanel">
 			<h4>All StudentIDs</h4>
 			<ul>	
-<%-- <c:forEach var="option" items="${idList}" > --%>
-<c:iterator value="allTakenSurveys" var="tt">
-  <li><a href="Driver?uid="><c:property value="#tt.studentID"/></a></li>
-<%-- </c:forEach> --%>
+	<c:iterator value="allTakenSurveys" var="tt">
+  		<li><a href="detailView?uuid=<c:property value="#tt.studentID"/>"><c:property value="#tt.studentID"/></a></li>
 	</c:iterator>
 			</ul>
 		</div>

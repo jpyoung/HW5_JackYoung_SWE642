@@ -11,6 +11,10 @@
 		<result name="winner">WinnerAcknowledgement.jsp</result>
 	</action>
 	
+	<action name="detailView" class="actions.Driver" method="gotoDetailedStudentView">
+		<result name="success">Student.jsp</result>
+		<result name="error">NoSuchStudent.jsp</result>
+	</action>
 		
 	</package>
 </struts>

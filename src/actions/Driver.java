@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.util.ServletContextAware;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -43,7 +45,49 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	private DataBeans dataBean;
 	private List<StudentBeans> allTakenSurveys;
 	private ServletContext servletContext;
+	
+	private StudentBeans selectedStudent;
 
+	
+	
+	/**
+	 * @return the selectedStudent
+	 */
+	public StudentBeans getSelectedStudent() {
+		return selectedStudent;
+	}
+
+
+	/**
+	 * @param selectedStudent the selectedStudent to set
+	 */
+	public void setSelectedStudent(StudentBeans selectedStudent) {
+		this.selectedStudent = selectedStudent;
+	}
+
+
+	
+	public String gotoDetailedStudentView() {
+		System.out.println("[INFO] :=:  doGet() method called in the Driver Action Class");
+		  HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		  String uuid = request.getParameter("uuid");
+		  System.out.println("[INFO] :=: AJAX Delete ID passed in: " + uuid);
+
+		  //retrieving all the survey from the DB.  
+		  setAllTakenSurveys(StudentDAO.retrieveAllSurveys());
+		  
+		  if (allTakenSurveys != null) {
+			  for (int i = 0; i < allTakenSurveys.size(); i++) {
+			  if(uuid.equals(allTakenSurveys.get(i).getStudentID())) {
+				  setSelectedStudent(allTakenSurveys.get(i));
+			  }
+		  	}
+		  } else {
+			  return "error";
+		  }
+		 
+		return "success";
+	}
 	
 	
 	public String submit() {

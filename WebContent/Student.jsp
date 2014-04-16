@@ -22,9 +22,9 @@
 		<div id="leftPanel">
 			<h4>All StudentIDs</h4>
 			<ul>	
-<c:forEach var="option" items="${idList}" >
-  <li><a href="Driver?uid=${option}"><c:out value="${option}"/></a></li>
-</c:forEach>
+	<c:iterator value="allTakenSurveys" var="tt">
+  		<li><a href="detailView?uuid=<c:property value="#tt.studentID"/>"><c:property value="#tt.studentID"/></a></li>
+	</c:iterator>
 			</ul>
 		</div>
 		
@@ -34,8 +34,8 @@
 			<h1>Student Information Page</h1>
 		
 
-		<h4>Username: ${st.username}</h4>
-		<h4>Student ID: ${st.studentID}</h4>
+		<h4>Username: <c:property value="selectedStudent.username"/></h4>
+		<h4>Student ID: <c:property value="selectedStudent.studentID"/></h4>
 		<table border="1">
 			<tr>
 				<th>fullName</th>
@@ -49,15 +49,15 @@
 				<th>Grad Month/Year</th>
 			</tr>
 			<tr>
-				<td>${st.fullName}</td>
-				<td>${st.streetAddress}</td>
-				<td>${st.city}</td>
-				<td>${st.state}</td>
-				<td>${st.zip}</td>
-				<td>${st.telephoneNumber}</td>
-				<td>${st.email}</td>
-				<td>${st.dateOfSurvey}</td>
-				<td>${st.gradMonth}</td>
+				<td><c:property value="selectedStudent.fullName"/></td>
+				<td><c:property value="selectedStudent.streetAddress"/></td>
+				<td><c:property value="selectedStudent.city"/></td>
+				<td><c:property value="selectedStudent.state"/></td>
+				<td><c:property value="selectedStudent.zip"/></td>
+				<td><c:property value="selectedStudent.telephoneNumber"/></td>
+				<td><c:property value="selectedStudent.email"/></td>
+				<td><c:property value="selectedStudent.dateOfSurvey"/></td>
+				<td><c:property value="selectedStudent.gradMonth"/></td>
 			</tr>
 		</table>
 		
@@ -73,15 +73,12 @@
 			</tr>
 			<tr>
 				<td>
-				<c:forEach var="option" items="${st.likedAboutCampus}" >
-  					${option}
-				</c:forEach>
-				
+					<c:property value="selectedStudent.likedAboutCampus"/>
 				</td>
-				<td>${st.originOfInterest}</td>
-				<td>${st.likelyhoodOfRecommendation}</td>
-				<td>${st.raffle}</td>
-				<td>${st.comments}</td>
+				<td><c:property value="selectedStudent.originOfInterest"/></td>
+				<td><c:property value="selectedStudent.likelyhoodOfRecommendation"/></td>
+				<td><c:property value="selectedStudent.raffle"/></td>
+				<td><c:property value="selectedStudent.comments"/></td>
 			</tr>
 		</table>
 
