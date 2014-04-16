@@ -324,7 +324,7 @@ function verifyUniqueStudentID() {
 	var enteredID = $("#studentID").val();
 	var result = true;
     $.ajax({
-        url: "http://localhost:8080/AS4_JackYoung_SWE642/SurveyData_JackYoung.txt",
+        url: "http://localhost:8080/HW5_JackYoung_SWE642/SurveyData_JackYoung.txt",
         async: false,
         success: function (data){
            var lines = data.split('\n');

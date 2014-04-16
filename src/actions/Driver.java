@@ -35,12 +35,6 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	
 	private static final long serialVersionUID = 1L;
        
-	private static String WINNER_JSP = "WinnerAcknowledgement.jsp";
-	private static String SIMPLE_JSP = "SimpleAcknowledgement.jsp";
-	private static String STUDENT_JSP = "Student.jsp";
-	private static String NOSUCHSTUDENT_JSP = "NoSuchStudent.jsp";
-	private static String SURVEY_JSP = "index.jsp";
-	
 	private StudentBeans studentBean;
 	private DataBeans dataBean;
 	private List<StudentBeans> allTakenSurveys;
