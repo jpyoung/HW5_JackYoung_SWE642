@@ -76,14 +76,14 @@ $(function() {
 		var ih = $('input:radio[name=interestHow]:checked').val();
 		
 		var dataString = 'username=' + usn + '&fullName=' + fn + '&streetAddress=' + sa + '&zip=' + z + '&state=' + st + '&city=' + c;
-			dataString += '&telephoneNumber=' + t + '&email=' + em + '&url=' + ur + '&surveyDate=' + sd + '&gradMonth=' + grm + '&GraduationYear=' + gy;
-			dataString += '&recommendToFriend=' + rtf + '&Data=' + dat + '&studentID=' + sti + '&comments=' + cm + '&interestHow=' + ih;
-			dataString += '&likeMost=' + checked;
+			dataString += '&telephoneNumber=' + t + '&email=' + em + '&url=' + ur + '&dateOfSurvey=' + sd + '&gradMonth=' + grm + '&GraduationYear=' + gy;
+			dataString += '&likelyhoodOfRecommendation=' + rtf + '&raffle=' + dat + '&studentID=' + sti + '&comments=' + cm + '&originOfInterest=' + ih;
+			dataString += '&likedAboutCampus=' + checked;
 
 		if (formValidation()) {
 			//If the form is validates, then send the data to servlet, else display the error
 			// meessage in the UI modal window. 
-			window.location = 'http://localhost:8080/HW5_JackYoung_SWE642/Drivers';
+			window.location = 'http://localhost:8080/HW5_JackYoung_SWE642/Drivers?' + dataString;
 		}
 	});
 	
@@ -215,7 +215,7 @@ $(function() {
 					<td>
 						<label>Enter 10 numbers separated by a comma.</label>
 						<p id="data_error_field">Error Place</p>
-						<input class="full tField" id="Data" name="Data" type="text" value="" placeholder="1,50, ..."/>
+						<input class="full tField" id="Data" name="raffle" type="text" value="" placeholder="1,50, ..."/>
 					</td>
 					<td>
 						<label>Student Id:</label><br/>

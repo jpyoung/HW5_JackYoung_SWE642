@@ -29,7 +29,7 @@ import javax.persistence.Query;
  */
 public class StudentDAO {
 
-	private static final String PERSISTENCE_UNIT_NAME = "studentbeanss";
+	private static final String PERSISTENCE_UNIT_NAME = "studentbeansss";
 	private static EntityManagerFactory factory;
 
 	  public static List<StudentBeans> retrieveAllSurveys() {
@@ -37,7 +37,7 @@ public class StudentDAO {
 		    factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		    EntityManager em = factory.createEntityManager();
 		    em.getTransaction().begin(); 
-		    Query q = em.createQuery("select t from StudentBean t");
+		    Query q = em.createQuery("select t from StudentBeans t");
 		    q.setHint("eclipselink.refresh", "true");
 		    @SuppressWarnings("unchecked")
 			List<StudentBeans> s = q.getResultList();
@@ -62,7 +62,7 @@ public class StudentDAO {
 		    factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		    EntityManager em = factory.createEntityManager();
 		    em.getTransaction().begin(); 
-		    Query q = em.createQuery("select t from StudentBean t");
+		    Query q = em.createQuery("select t from StudentBeans t");
 		    q.setHint("eclipselink.refresh", "true");
 		    @SuppressWarnings("unchecked")
 			List<StudentBeans> s = q.getResultList();

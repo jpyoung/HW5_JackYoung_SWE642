@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="studentbeansss"
+		transaction-type="RESOURCE_LOCAL">
+		<class>model.StudentBeans</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:oracle:thin:@apollo.ite.gmu.edu:1521:ite10g" />
+			<property name="javax.persistence.jdbc.user" value="jyoung17" />
+			<property name="javax.persistence.jdbc.password" value="Drpepper123" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+
+			<!-- EclipseLink should create the database schema automatically -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="database" />
+			<property name="eclipselink.cache.shared.default" value="false" />
+		</properties>
+
+	</persistence-unit>
+</persistence>

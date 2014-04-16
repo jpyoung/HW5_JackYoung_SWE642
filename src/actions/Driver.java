@@ -2,6 +2,7 @@ package actions;
 
 import java.io.IOException;
 import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,9 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts2.util.ServletContextAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+
 import businessLogic.DataProcessor;
 import businessLogic.StudentDAO;
 import model.DataBeans;
@@ -49,11 +53,25 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 		
 		System.out.println("Hello Was Called " + studentBean);
 		
+		//Writing the students information to the text file.
+		StudentDAO.writeOutID(studentBean.getStudentID());
+		
+		boolean succInsert = StudentDAO.insertStudentSurveyRecord(studentBean);
+		if (succInsert) {
+			System.out.println("[INFO] Student Survey was successfully inserted into the Database");
+		} else {
+			System.out.println("[ERROR] The Student Survey was not successfully inserted into the Database.");
+		}
+		
+		//Calculating the Mean and STDV and setting the databean
 		dataBean = DataProcessor.computeMetrics(studentBean.getRaffle());
+		
+		//gathering all the IDs of the students
+		List<String> allIDS = StudentDAO.gatherIDs();
 		
 		servletContext.setAttribute("compMean", getDataBean().getMean());
 		servletContext.setAttribute("compStdv", getDataBean().getStdv());
-		
+		servletContext.setAttribute("idList", allIDS);
 		
 		if (dataBean.getMean() > 90) {
 			return "winner";
