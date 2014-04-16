@@ -6,10 +6,9 @@
 	<package name="default" extends="struts-default">
 		
 
-	<action name="hello" class="actions.Driver" method="submit">
-		<result name="success">SimpleAcknowledgementView</result>
-		<result name="winner">WinnerAcknowledgementView</result>
-		<result name="input">surveyFormView</result>
+	<action name="Drivers" class="actions.Driver" method="submit">
+		<result name="success">SimpleAcknowledgement.jsp</result>
+		<result name="winner">WinnerAcknowledgement.jsp</result>
 	</action>
 	
 		

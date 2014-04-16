@@ -83,14 +83,34 @@ $(function() {
 		if (formValidation()) {
 			//If the form is validates, then send the data to servlet, else display the error
 			// meessage in the UI modal window. 
-			window.location = 'http://localhost:8080/AS4_JackYoung_SWE642/Driver?' + dataString;
+			window.location = 'http://localhost:8080/HW5_JackYoung_SWE642/Drivers';
 		}
 	});
+	
+	$("#ttesst").click(function() {
+		var usn = $("#username").val("dsJohnD");
+		var fn = $("#fullName").val("john d");
+		var sa = $("#streetAddress").val("123adsf south");
+		var z = $("#zip").val("20120");
+		var st = $("#state").val("VA");
+		var c = $("#city").val("Centreville");
+		var t = $("#telephoneNumber").val("123-123-3123");
+		var em = $("#email").val("g@gmail.com");
+		var ur = $("#url").val("google.com");
+		var sd = $("#surveyDate").val("04-16-2014");
+		var grm = $("#gradMonth").val("March");
+		var gy = $("#GraduationYear").val("2014");
+		var sti = $("#studentID").val("20144124");	
+	});
+	
+	
 });
 
 /* verifyUniqueStudentID(); */
 
-</script>		
+</script>	
+
+	<button id="ttesst">TestFill</button>	
 			
 		<!-- <form id="survey_form" action="Driver" autocomplete="on"> -->
 		<table id="formTable" border="0">

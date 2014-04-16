@@ -41,8 +41,23 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	private ServletContext servletContext;
 
 	
-	public String hello() {
-		System.out.println("Hello Was Called");
+	public String submit() {
+		System.out.println("[INFO] :=:  doGet() method called in the Driver Action Class");
+		StudentDAO.FILENAME = servletContext.getRealPath("SurveyData_JackYoung.txt");
+		System.out.println("[Text File Location] :=: " + StudentDAO.FILENAME);
+		
+		
+		System.out.println("Hello Was Called " + studentBean);
+		
+		dataBean = DataProcessor.computeMetrics(studentBean.getRaffle());
+		
+		servletContext.setAttribute("compMean", getDataBean().getMean());
+		servletContext.setAttribute("compStdv", getDataBean().getStdv());
+		
+		
+		if (dataBean.getMean() > 90) {
+			return "winner";
+		}
 		return "success";
 	}
 	
@@ -252,33 +267,64 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	 * @param request
 	 * @return boolean
 	 */
-	@SuppressWarnings("unused")
-	public static boolean fieldsPopulated(HttpServletRequest request){
-		 String full_name = request.getParameter("fullName");
-		 String streetAddress = request.getParameter("streetAddress");
-		 String city = request.getParameter("city");
-		 String state = request.getParameter("state");
-		 String zip = request.getParameter("zip");
-		 String telephoneNumber = request.getParameter("telephoneNumber");
-		 String email = request.getParameter("email");
-		 String dataOfSurvey = request.getParameter("surveyDate");
-		 String[] likedAboutCampus = request.getParameterValues("likeMost");
-		 if (likedAboutCampus == null) {
-			 likedAboutCampus = new String[]{"n/a"};
-		 }
-		 String originOfInterest = request.getParameter("interestHow");
-		 String likelyhoodOfRecommendation = request.getParameter("recommendToFriend");
-		 String raffle = request.getParameter("Data");
-		 String comments = request.getParameter("comments");
-		 String username = request.getParameter("username");
-		 String studentId = request.getParameter("studentID");
-		 
-		 if (full_name.equals("") || streetAddress.equals("") || studentId.equals("") || email.equals("")) {
-			 return false;
-		 }
-		 return true;
+//	@SuppressWarnings("unused")
+//	public static boolean fieldsPopulated(HttpServletRequest request){
+//		 String full_name = request.getParameter("fullName");
+//		 String streetAddress = request.getParameter("streetAddress");
+//		 String city = request.getParameter("city");
+//		 String state = request.getParameter("state");
+//		 String zip = request.getParameter("zip");
+//		 String telephoneNumber = request.getParameter("telephoneNumber");
+//		 String email = request.getParameter("email");
+//		 String dataOfSurvey = request.getParameter("surveyDate");
+//		 String[] likedAboutCampus = request.getParameterValues("likeMost");
+//		 if (likedAboutCampus == null) {
+//			 likedAboutCampus = new String[]{"n/a"};
+//		 }
+//		 String originOfInterest = request.getParameter("interestHow");
+//		 String likelyhoodOfRecommendation = request.getParameter("recommendToFriend");
+//		 String raffle = request.getParameter("Data");
+//		 String comments = request.getParameter("comments");
+//		 String username = request.getParameter("username");
+//		 String studentId = request.getParameter("studentID");
+//		 
+//		 if (full_name.equals("") || streetAddress.equals("") || studentId.equals("") || email.equals("")) {
+//			 return false;
+//		 }
+//		 return true;
+//	}
+
+	
+	/**
+	 * @return the studentBean
+	 */
+	public StudentBeans getStudentBean() {
+		return studentBean;
 	}
 
+	/**
+	 * @param studentBean the studentBean to set
+	 */
+	public void setStudentBean(StudentBeans studentBean) {
+		this.studentBean = studentBean;
+	}
+	
+	/**
+	 * @return the dataBean
+	 */
+	public DataBeans getDataBean() {
+		return dataBean;
+	}
+
+	/**
+	 * @param dataBean the dataBean to set
+	 */
+	public void setDataBean(DataBeans dataBean) {
+		this.dataBean = dataBean;
+	}
+	
+	
+	
 	@Override
 	public Object getModel() {
 		studentBean = new StudentBeans();
