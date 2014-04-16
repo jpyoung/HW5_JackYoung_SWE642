@@ -21,9 +21,9 @@
 		<div id="leftPanel">
 			<h4>All StudentIDs</h4>
 			<ul>	
-<c:forEach var="option" items="${idList}" >
-  <li><a href="Driver?uid=${option}"><c:out value="${option}"/></a></li>
-</c:forEach>
+	<c:iterator value="allTakenSurveys" var="tt">
+  		<li><a href="detailView?uuid=<c:property value="#tt.studentID"/>"><c:property value="#tt.studentID"/></a></li>
+	</c:iterator>
 			</ul>
 		</div>
 	
@@ -34,7 +34,7 @@
 		
 		<div class="message">
 			<fieldset>
-			<h1 class="center">Congratulations! ${name}</h1>
+			<h1 class="center">Congratulations! <c:property value="fullName" /></h1>
 			<h2>You Are A Winner Of Two Movie Tickets for Having a Raffle Average Greater Than 90.</h2>
 			<h3 class="center">Thank you for taking the time to fill out the survey!</h3>
 				<p>- The information has been successfully stored</p>
