@@ -49,7 +49,7 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 		System.out.println("[INFO] :=:  gotoDetailedStudentView() method called in the Driver Action Class");
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		String uuid = request.getParameter("uuid");
-		System.out.println("[INFO] :=: AJAX Delete ID passed in: " + uuid);
+		System.out.println("[INFO] :=: AJAX The selected ID in: " + uuid);
 
 		// retrieving all the survey from the DB.
 		setAllTakenSurveys(StudentDAO.retrieveAllSurveys());
