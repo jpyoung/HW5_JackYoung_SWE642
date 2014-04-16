@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 /**
  * @author Jack Young
- * @date April 1, 2014
+ * @date April 14, 2014
  * SWE 642
  * 
  * Class Purpose: This class contains the fields/attributes that were
@@ -418,34 +418,4 @@ public class StudentBeans {
 				+ studentID + "]";
 	}
 
-
-
-
-
-	
-
-	/**
-	 * This method is used to produced a string representation
-	 * of the student object, in a specialized storage format
-	 * manner.  This string is then returned to the calling
-	 * method. 
-	 * 
-	 * @return String
-	 */
-//	public String textFileStorageFormat() {
-//		String s =  "{" + fullName + "}{" + streetAddress + "}{" + city
-//				+ "}{" + state + "}{" + zip + "}{"
-//				+ telephoneNumber + "}{" + email + "}{"
-//				+ dataOfSurvey + "}{";
-//			if (likedAboutCampus != null) {
-//			for (int i = 0; i < likedAboutCampus.length; i++) {
-//				s += likedAboutCampus[i] + ",";
-//			}
-//			}
-//			s += "}{" + originOfInterest
-//				+ "}{" + likelyhoodOfRecommendation
-//				+ "}{" + raffle + "}{" + comments + "}{" + username + "}{" + studentId + "}";
-//		
-//		return s;
-//	}
 }
