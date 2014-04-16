@@ -21,9 +21,11 @@
 		<div id="leftPanel">
 			<h4>All StudentIDs</h4>
 			<ul>	
-<c:forEach var="option" items="${idList}" >
-  <li><a href="Driver?uid=${option}"><c:out value="${option}"/></a></li>
-</c:forEach>
+<%-- <c:forEach var="option" items="${idList}" > --%>
+<c:iterator value="allTakenSurveys" var="tt">
+  <li><a href="Driver?uid="><c:property value="#tt.studentID"/></a></li>
+<%-- </c:forEach> --%>
+	</c:iterator>
 			</ul>
 		</div>
 		
@@ -32,7 +34,7 @@
 			
 		<div class="message">
 			<fieldset>
-			<h1 class="center">${name}</h1>
+			<h1 class="center"><c:property value="fullName" /></h1>
 			<h2 class="center">Thank you for taking the time to fill out the survey!</h2>
 				<p>- The information has been successfully stored</p>
 					<table border="1">

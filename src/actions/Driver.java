@@ -45,6 +45,7 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 	private ServletContext servletContext;
 
 	
+	
 	public String submit() {
 		System.out.println("[INFO] :=:  doGet() method called in the Driver Action Class");
 		StudentDAO.FILENAME = servletContext.getRealPath("SurveyData_JackYoung.txt");
@@ -65,6 +66,9 @@ public class Driver extends ActionSupport implements ModelDriven, ServletContext
 		
 		//Calculating the Mean and STDV and setting the databean
 		dataBean = DataProcessor.computeMetrics(studentBean.getRaffle());
+		
+		
+		setAllTakenSurveys(StudentDAO.retrieveAllSurveys());
 		
 		//gathering all the IDs of the students
 		List<String> allIDS = StudentDAO.gatherIDs();
