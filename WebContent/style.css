@@ -1,0 +1,155 @@
+/* Created By: Jack Young.   SWE642 */
+
+body {
+	padding: 0px;
+	margin: 0px;	
+}
+
+#header_bar {
+	background-color: #3b5998;
+	height: 82px;
+	min-width: 980px;
+
+}
+
+#logo_top_bar {
+	color: white;
+	size: 28px;
+	font-size: 38px;
+	font-weight: bold;
+	font-family: sans-serif;
+	margin-left: 200px;
+	padding-top: 20px;
+	display: inline-block;
+}
+
+#contentArea {
+	margin-left: 300px;
+	width: 800px;
+	padding-top: 20px;
+}
+
+p {
+	font-size: 17px;
+}
+
+li {
+	font-size: 17px;
+}
+
+#leftBar {
+	width: 200px;
+	height: 200px;
+	float: left;
+	padding-top: 45px;
+}
+
+#survey a {
+	font-size: 20px;
+	padding-left: 6px;
+}
+
+.footer {
+	overflow: hidden;
+}
+
+.footer #gmuLogo {
+	float: right;
+}
+
+.medium {
+	width: 170px;
+}
+
+.full {
+	width: 300px;
+}
+
+.tField {
+	padding: 8px 10px;
+	border-radius: 5px;
+	font-size: 18px;
+	border-color: #bdc7d8;
+}
+
+.tArea {
+	width: 100%;
+}
+
+.inputSpacer {
+	margin-left: 61px;
+}
+
+td {
+	padding-top:10px;
+}
+
+table {
+	max-width: 486px;
+}
+
+h1 {
+	color: blue;
+	color: rgb(101, 101, 173);
+	text-shadow: -2px 4px 6px dimgrey;
+}
+
+.creatorName {
+	float: left;
+	margin-top: 70px;
+	margin-left: 20px;
+}
+
+#data_error_field {
+	color: red;
+}
+
+#upperRight {
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+}
+
+#errorBox {
+	background-color: yellow;
+}
+
+
+	#leftPanel {
+		/*background-color: yellow;*/
+		width: 220px;
+		float: left;
+	}
+
+	#leftPanel h4 {
+		text-align: center;
+	}
+
+	#contentArea2 {
+		/*background-color: green;*/
+		/*margin-left: 300px;*/
+		width: 800px;
+		padding-top: 20px;
+		float: left;
+	}
+
+	#wrapper {
+		/*background-color: orange;*/
+		width: 100%;
+		overflow: auto;
+	}
+
+	/*Changing the default contentArea margin-left field*/
+#contentArea {
+	margin-left: 100px;
+	width: 800px;
+	padding-top: 20px;
+}
+
+#formTable td {
+	padding-left: 5px;
+}
+
+#formTable #f-submit {
+	margin-left: 80px;
+}
